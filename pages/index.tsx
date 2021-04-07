@@ -1,24 +1,19 @@
-import { useState } from 'react';
-const Home = () => {
+import { Flex } from '@chakra-ui/layout';
+import Header from '../components/Header';
+import Home from './home';
+
+const Index = () => {
   return (
-    <div>
-      <h1>home</h1>
-      <Contador />
-    </div>
+    <Flex
+      direction="column"
+      alignItems="center"
+      justifyContent="space-around"
+      h="500px"
+    >
+      <Header></Header>
+      <Home></Home>
+    </Flex>
   );
 };
 
-const Contador = () => {
-  const [contador, setContador] = useState(1);
-  const adicionarContador = () => {
-    setContador(contador + 1);
-  };
-
-  return (
-    <div>
-      <h2>{contador}</h2>
-      <button onClick={adicionarContador}>Click</button>
-    </div>
-  );
-};
-export default Home;
+export default Index;
