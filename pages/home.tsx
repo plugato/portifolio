@@ -1,19 +1,35 @@
 import { Button } from '@chakra-ui/button';
 import { Box, Flex, Heading } from '@chakra-ui/layout';
-import { useState } from 'react';
-import Header from '../components/Header';
-const Home = () => {
+import React, { FC, useEffect, useState } from 'react';
+
+import mqtt from 'mqtt';
+import MyMqtt, { mqttPublish } from '../components/mqtt';
+
+const client = mqtt.connect('mqtt://broker.emqx.io:1883');
+
+export const Home: FC = () => {
+  const [cont, setCont] = useState(false);
+  const [message, setMessage] = useState('');
+
   return (
     <Flex alignContent="center" textAlign="center">
-      <Contador />
+      <Contador setMessage={setMessage} />
+      <MyMqtt messageSend={message} topic="presence/2/" />
     </Flex>
   );
 };
 
-const Contador = () => {
+const Contador = ({ setMessage }) => {
   const [contador, setContador] = useState(1);
+
+  useEffect(() => {
+    setMessage(contador.toString());
+  }, [contador]);
+
   const adicionarContador = () => {
     setContador(contador + 1);
+
+    //mqtt.read();
   };
 
   return (
@@ -42,4 +58,5 @@ const Contador = () => {
     </Box>
   );
 };
+
 export default Home;

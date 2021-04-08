@@ -1,6 +1,8 @@
 import { Flex } from '@chakra-ui/layout';
 import Header from '../components/Header';
 import Home from './home';
+import { Connector } from 'mqtt-react';
+import { subscribe } from 'mqtt-react';
 
 const Index = () => {
   return (
