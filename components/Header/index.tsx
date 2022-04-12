@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <Box>
       <Heading as="h1" size="4xl" isTruncated>
-        Header
+        Header sandrinho
       </Heading>
     </Box>
   );

@@ -9,7 +9,7 @@ const client = mqtt.connect('mqtt://broker.emqx.io:1883');
 
 export const Home: FC = () => {
   const [cont, setCont] = useState(false);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState('initial message');
 
   return (
     <Flex alignContent="center" textAlign="center">
@@ -27,6 +27,7 @@ const Contador = ({ setMessage }) => {
   }, [contador]);
 
   const adicionarContador = () => {
+    0;
     setContador(contador + 1);
 
     //mqtt.read();

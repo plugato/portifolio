@@ -17,15 +17,15 @@ const MyMqtt = ({ messageSend, topic }) => {
   };
   const onFinish = (values) => {
     const { host, clientId, port, username, password } = {
-      host: 'broker.emqx.io',
-      port: 8083,
+      host: 'broker.hivemq.com',
+      port: 8000,
       clientId: 'anc1883',
     };
 
-    const url = `ws://${host}:${port}/mqtt`;
+    const url = `ws://${host}:${port}`;
     const options = {
       keepalive: 30,
-      protocolId: 'MQTT',
+      protocolId: 'WS',
       protocolVersion: 4,
       clean: false,
       reconnectPeriod: 1000,
